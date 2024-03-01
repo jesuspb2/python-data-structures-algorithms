@@ -55,14 +55,18 @@ class Stack:
 
 
 ##### WRITE SORT_STACK FUNCTION HERE #####
-#                                        #
-#  This is a separate function that is   #
-#  not a method within the Stack class.  #
-#                                        #
-#  <- INDENT ALL THE WAY TO THE LEFT <-  #
-#                                        #
-##########################################
 
+def sort_stack(stack):
+    sorted_stack = Stack()
+
+    while not stack.is_empty():
+        temp = stack.pop()
+        while not sorted_stack.is_empty() and sorted_stack.peek() > temp:
+            stack.push(sorted_stack.pop())
+        sorted_stack.push(temp)
+
+    while not sorted_stack.is_empty():
+        stack.push(sorted_stack.pop())
 
 
 my_stack = Stack()
